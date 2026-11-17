@@ -27,8 +27,8 @@ class MRWordFreqCount(MRJob):
         yield None, (sum(counts), word)
 
     def reducer_find_top_words(self, _, word_counts):
-        # Sort the word_counts in descending order and take the top 5
-        top_words = sorted(word_counts, reverse=True)[:5]
+        # Sort the word_counts in descending order and take the top 10
+        top_words = sorted(word_counts, reverse=True)[:10]
         for count, word in top_words:
             yield (word, count)
 
